@@ -1,0 +1,11 @@
+def permutations(string):
+    """
+    :param: input string
+    Return - list of all permutations of the input string
+    TODO: complete this function to return a list of all permutations of the string
+    """
+    if(len(s)==1): return [s]
+    result=[]
+    for i,v in enumerate(s):
+        result += [v+p for p in perms(s[:i]+s[i+1:])]
+    return result
