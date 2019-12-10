@@ -1,0 +1,33 @@
+# Code
+
+import copy
+
+def permute(l):
+    """
+    Return a list of permutations
+    
+    Examples:
+       permute([0, 1]) returns [ [0, 1], [1, 0] ]
+    
+    Args:
+      l(list): list of items to be permuted
+    
+    Returns:
+      list of permutation with each permuted item being represented by a list
+    """
+    if len(l) == 0:
+        return [[]]
+    if len(l) == 1:
+        return [l]
+    
+    permutation_list = []
+    
+    for a in l:
+        rem_ele = [x for x in l if x!= a]
+        
+        z = permute(rem_ele)
+        
+        for b in z:
+            permutation_list.append([a]+b)
+    
+    return permutation_list
